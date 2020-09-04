@@ -17,12 +17,15 @@ require ("assets/includes/navbar.php");
 </head>
 <body class="text-center">
     <form action="insert.php" method="post">
+        <h3 class="my-5">
+            Verjaardag plannen
+        </h3>
         <p class="my-4">
-            <label for="spelers">Naam:</label>
+            <label for="name">Naam:</label>
             <input type="text" name="name" id="name" required>
         </p>
         <p class="my-4">
-            <label for="uitlegger">Datum:</label>
+            <label for="date">Datum:</label>
             <input type="date" name="date" id="date" required>
         </p>
         <input type="submit" class="btn btn-primary" name="save">

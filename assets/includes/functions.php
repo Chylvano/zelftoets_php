@@ -1,5 +1,6 @@
 <?php
 
+//connectie met de database maken
 function connect()
 {
 	
@@ -21,14 +22,16 @@ catch(PDOException $e)
     }
 }
 
+//functie om 1 verjaardag op te halen uit de database
 function getOne(){
     $conn = connect();
-    $query = $conn->prepare("SELECT * FROM games where id=:id");
+    $query = $conn->prepare("SELECT * FROM data where id=:id");
     $query->execute(['id' => $_GET['id']]);
     $result = $query->fetch();
     return $result;
 }
 
+//functie om alle verjaardagen op te halen uit de database
 function getAll(){
     $conn = connect();
     $stmt = $conn->prepare('SELECT * FROM data ORDER BY DATE');
@@ -37,13 +40,11 @@ function getAll(){
     return $result;
 }
 
+//functie om 1 verjaardag te verwijderen uit de database
 function deleteLocation($id){
     $conn = connect();
     $stmt = $conn->prepare("DELETE FROM data WHERE id= :deleteid");
     $stmt->execute([":deleteid" =>$id]);
 }
 
-
-
 ?>
-
